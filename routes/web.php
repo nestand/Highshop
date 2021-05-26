@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// route - name of the class; static method get (request method); /  - main or index page of our web page;
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
