@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // route - name of the class; static method get (request method); /  - main or index page of our web page;
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', [HomeController::class, 'index']);
