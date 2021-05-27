@@ -1,4 +1,4 @@
-<p align="center"><a href="#" target="_blank"><img src="https://i.imgur.com/KCXhSdP.png" width="200"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://i.imgur.com/4Gno0pJ.png" width="300"></a></p>
 
 <p align="center">
 <a href="https://www.linkedin.com/in/andreynest/"><img src="https://i.imgur.com/OfXSPlq.png" alt="about me"></a>
