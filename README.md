@@ -1,8 +1,8 @@
-<p align="center"><a href="#" target="_blank"><img src="https://ibb.co/VJfPpQK" width="400"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://imgur.com/KCXhSdP" width="200"></a></p>
 
 <p align="center">
-<a href="https://www.linkedin.com/in/andreynest/"><img src="https://ibb.co/tK685GS" alt="about me"></a>
-<a href="https://github.com/nestand?tab=repositories"><img src="https://ibb.co/Yt3CNtk" alt="more code"></a>
+<a href="https://www.linkedin.com/in/andreynest/"><img src="https://imgur.com/OfXSPlq" alt="about me"></a>
+<a href="https://github.com/nestand?tab=repositories"><img src="https://imgur.com/F2A6WoV" alt="more code"></a>
 </p>
 
 ## Highshop.
