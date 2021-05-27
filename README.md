@@ -5,7 +5,7 @@
 <a href="https://github.com/nestand?tab=repositories"><img src="https://i.imgur.com/F2A6WoV.png" alt="more code"></a>
 </p>
 
-## Highshop.
+## What is Highshop.?
 
 Highshop is a small high-tech shop. We are working with the leaders of high-tech industry. You will find excellent products with really interesting prices. But what you will find more it's laravel, blade, php, mysql code that I am using for this project. It's one of the final projects for my IT school. 
 
