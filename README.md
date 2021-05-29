@@ -1,8 +1,8 @@
 <p align="center"><a href="#" target="_blank"><img src="https://i.imgur.com/4Gno0pJ.png" width="300"></a></p>
 
 <p align="center">
-<a href="https://www.linkedin.com/in/andreynest/"><img src="https://i.imgur.com/OfXSPlq.png" alt="about me"></a>
-<a href="https://github.com/nestand?tab=repositories"><img src="https://i.imgur.com/F2A6WoV.png" alt="more code"></a>
+<a href="https://www.linkedin.com/in/andreynest/"><img src="https://imgur.com/GqUmrce.png" alt="about me"></a>
+<a href="https://github.com/nestand?tab=repositories"><img src="https://i.imgur.com/Ayehxur.png" alt="more code"></a>
 </p>
 
 ## What is Highshop.?
