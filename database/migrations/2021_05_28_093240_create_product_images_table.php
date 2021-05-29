@@ -16,7 +16,9 @@ class CreateProductImagesTable extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->string('img');
-            // id of every shop product
+            /* id of every product in the shop. !NB The column which 
+            defines the relationship between tables must be of unsigned type. 
+            Otherwise ERROR 1215*/ 
             $table->BigInteger('product_id')->unsigned();
             //for deleting photos of the product
             $table->foreign('product_id')
@@ -40,3 +42,4 @@ class CreateProductImagesTable extends Migration
         Schema::dropIfExists('product_images');
     }
 }
+
