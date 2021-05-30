@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="/styles/responsive.css">
+@yield('custom_css');
 </head>
 <body>
 
@@ -221,5 +222,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/plugins/easing/easing.js"></script>
 <script src="/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="/js/custom.js"></script>
+@yield('custom_js');
 </body>
 </html>

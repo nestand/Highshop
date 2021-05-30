@@ -4,6 +4,16 @@
 {{-- the name of <title> for index.blade.php --}}
 @section('title', 'Home')
 
+{{-- custom css/js -> to fix the bug with appearence--}}
+@section('custom_css')
+<link rel="stylesheet" type="text/css" href="/styles/product.css">
+<link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
+@endsection
+
+@section('custom_js')
+<script src="/js/product.js"></script>
+@endsection
+
 {{-- the content from index.blade.php --}} 
 @section('content')
 	
@@ -11,7 +21,7 @@
 
 	<div class="home">
 		<div class="home_container">
-			<div class="home_background" style="background-image:url(images/categories.jpg)"></div>
+			<div class="home_background" style="background-image:url(/images/categories.jpg)"></div>
 			<div class="home_content_container">
 				<div class="container">
 					<div class="row">
