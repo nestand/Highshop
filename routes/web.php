@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 // route - name of the class; static method get (request method); /  - main or index page of our web page;
 Route::get('/', [HomeController::class, 'index']);
 // route to the product page 
-Route::get('/{cat}/{product_id}', [ProductController::class, 'get']);
+Route::get('/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
