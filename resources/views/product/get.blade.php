@@ -59,17 +59,21 @@
 				<!-- Product Content -->
 				<div class="col-lg-6">
 					<div class="details_content">
-						<div class="details_name">Smart Phone</div>
-						<div class="details_discount">$890</div>
-						<div class="details_price">$670</div>
-
+						<div class="details_name">{{$item->title}}</div>
+						@if($item->new_price != null)
+								<div style="text-decoration:line-through">${{$item->price}}</div>
+								<div class="details_price">${{$item->new_price}}</div>
+								@else
+								<div class="details_discount">${{$item->price}}</div>
+								@endif
+						
 						<!-- In Stock -->
 						<div class="in_stock_container">
 							<div class="availability">Availability:</div>
 							<span>In Stock</span>
 						</div>
 						<div class="details_text">
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p>
+							<p>{{$item->description}}</p>
 						</div>
 
 						<!-- Product Quantity -->

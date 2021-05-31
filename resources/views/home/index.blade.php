@@ -142,6 +142,7 @@
 						if(count ($product->images) > 0){
 							$image = $product->images[0]['img'];
 						} else {
+							// if no photo available, it will be remplaced by the 'comming soon pic'
 							$image = 'soon.png';
 						}
 						
@@ -151,8 +152,14 @@
 							<div class="product_extra product_new"><a href="categories.html">New</a></div>
 							<div class="product_content">
 								<div class="product_title"><a href="{{route('getProduct', ['category',$product->id])}}">{{$product->title}}</a></div>
+								{{-- to check if there is new price to show from the DB --}}
+								@if($product->new_price != null)
+								<div style="text-decoration:line-through">${{$product->price}}</div>
+								<div class="product_price">${{$product->new_price}}</div>
+								@else
 								<div class="product_price">${{$product->price}}</div>
-							</div>
+								@endif
+								</div>
 						</div>
 						@endforeach
 					</div>
