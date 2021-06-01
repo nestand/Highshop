@@ -15,4 +15,8 @@ class ProductController extends Controller
             'item'=>$item
         ]);
     }
+
+    public function getCategory(){
+        //
+    }
 }
