@@ -107,6 +107,12 @@ if(count($item->images)>0){
 							</div>
 							<div class="button cart_button"><a href="#">Add to cart</a></div>
 						</div>
+						
+						
+						{{-- this section is under construction. it's in BETA --}}
+						@php
+						echo url()->current();
+						@endphp
 
 						<!-- Share -->
 						<div class="details_share">
@@ -114,8 +120,8 @@ if(count($item->images)>0){
 							<ul>
 								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="https://www.facebook.com/sharer.php?url={{ $item->title }}" rel="me" title="Facebook" target="_blank"></a><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="https://twitter.com/share?url={{ $item }}&text={{ $item->description }}" rel="me" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
