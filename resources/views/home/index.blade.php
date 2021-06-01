@@ -154,7 +154,7 @@
 								<div class="product_title"><a href="{{route('getProduct', ['category',$product->id])}}">{{$product->title}}</a></div>
 								{{-- to check if there is new price to show from the DB --}}
 								@if($product->new_price != null)
-								<div style="text-decoration:line-through">${{$product->price}}</div>
+								<div style="text-decoration: line-through">${{$product->price}}</div>
 								<div class="product_price">${{$product->new_price}}</div>
 								@else
 								<div class="product_price">${{$product->price}}</div>
