@@ -46,11 +46,10 @@
 									<li class="hassubs">
 										<a href="categories.html">Categories</a>
 										<ul>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
+											{{-- to get the category name from DB and put it in the menu --}}
+											@foreach ($categories as $category)
+										    <li><a href="categories.html">{{$category->title}}</a></li>
+										    @endforeach
 										</ul>
 									</li>
 									<li><a href="#">Accessories</a></li>
