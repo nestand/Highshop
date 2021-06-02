@@ -46,19 +46,10 @@
 									<li class="hassubs">
 										<a href="categories.html">Categories</a>
 										<ul>
-<<<<<<< HEAD
-											{{-- to get the category name from DB and put it in the menu --}}
-											@foreach ($categories as $category)
-										    <li><a href="categories.html">{{$category->title}}</a></li>
-										    @endforeach
-										</ul>
-=======
-										{{-- the variable $categories from the boot--}}
 										@foreach ($categories as $category)
-										    <li><a href="{{route('getCategory', $category->alias)}}">{{$category->title}}</a></li>
+										<li><a href="categories.html">{{$category->title}}</a></li>
 										@endforeach
-									    </ul>
->>>>>>> 54c96336c5326b7d78b2e5d86ef47299c5a8a391
+									</ul>
 									</li>
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
