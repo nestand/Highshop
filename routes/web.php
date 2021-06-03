@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 // route - name of the class; static method get (request method); /  - main or index page of our web page;
 Route::get('/', [HomeController::class, 'index']);
-// route to the product page 
-Route::get('/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
+
 //route to the categories
-Route::get('/{cat}', [ProductController::class, 'getCategory'])->name('getCategory');
+/*fixed error Route [getCategories] not defined -> $ php artisan route:clear
+$ php artisan route:cache */
+Route::get('/category/{cat}', [ProductController::class, 'getCategories'])->name('getCategories');
+
+//another way 
+/*Route::name('/{cat}')->get('/{cat}', [ProductController::class, 'getCategories']);
+Route::redirect('/', route('/{cat}')); */
+
+
+// route to the product page 
+Route::get('/category/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');

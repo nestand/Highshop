@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product; 
+use App\Models\Category;
 
 //function to select only one product from DB to show it seperately and on a single page.
 class ProductController extends Controller
@@ -16,7 +17,11 @@ class ProductController extends Controller
         ]);
     }
 
-    public function getCategory(){
-        //
+    //fixed syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ']' -> MISSING ',' after categories.index
+    public function getCategories($cat_alias){
+        $cat = Category::where('alias', $cat_alias)->first();
+        return view ('categories.index', [
+            'cat'=>$cat
+            ]);
     }
 }

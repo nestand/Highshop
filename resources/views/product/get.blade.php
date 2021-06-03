@@ -4,14 +4,10 @@
 {{-- the name of <title> for index.blade.php --}}
 @section('title', 'Home')
 
-{{-- custom css/js -> to fix the bug with appearence--}}
+{{-- custom css -> to fix the bug with the appearence--}}
 @section('custom_css')
 <link rel="stylesheet" type="text/css" href="/styles/product.css">
 <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
-@endsection
-
-@section('custom_js')
-<script src="/js/product.js"></script>
 @endsection
 
 {{-- the content from index.blade.php --}} 
@@ -44,16 +40,16 @@
 			<div class="row details_row">
 
 				<!-- Product Image -->
-				<div class="col-lg-6">
+				        <div class="col-lg-6">
 					@php
-$image = '';
-if(count($item->images)>0){
-	$image = $item->images[0]['img'];
-}else{
-	$image = 'soon.png';
-}
+                 $image = '';
+                 if(count($item->images)>0){
+	              $image = $item->images[0]['img'];
+                 }else{
+	              $image = 'soon.png';
+                     }
 					@endphp
-					<div class="details_image">
+					    <div class="details_image">
 						<div class="details_image_large"><img src="/images/{{$image}}" alt="{{$item->title}}"><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
 						<div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
 							@if($image=='soon.png') 
@@ -61,8 +57,8 @@ if(count($item->images)>0){
                         @foreach($item->images as $image)
 						@if($loop->first)
 						<div class="details_image_thumbnail active" data-image="/images/{{$image['img']}}"><img src="/images/{{$image['img']}}" alt="{{$item->title}}"></div>
-@else
-<div class="details_image_thumbnail" data-image="/images/{{$image['img'] }}"><img src="/images/{{$image['img'] }}" alt="{{$item->title}}"></div>
+                        @else
+                        <div class="details_image_thumbnail" data-image="/images/{{$image['img'] }}"><img src="/images/{{$image['img'] }}" alt="{{$item->title}}"></div>
 
 							@endif
 							@endforeach
@@ -76,7 +72,7 @@ if(count($item->images)>0){
 					<div class="details_content">
 						<div class="details_name">{{$item->title}}</div>
 						@if($item->new_price != null)
-								<div class="details_discount">${{$item->price}}</div>
+								<div class="details_discphpount">${{$item->price}}</div>
 								<div class="details_price">${{$item->new_price}}</div>
 								@else
 								<div class="details_price">${{$item->price}}</div>
@@ -107,12 +103,6 @@ if(count($item->images)>0){
 							</div>
 							<div class="button cart_button"><a href="#">Add to cart</a></div>
 						</div>
-						
-						
-						{{-- this section is under construction. it's in BETA --}}
-						@php
-						echo url()->current();
-						@endphp
 
 						<!-- Share -->
 						<div class="details_share">
@@ -120,8 +110,8 @@ if(count($item->images)>0){
 							<ul>
 								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="https://www.facebook.com/sharer.php?url={{ $item->title }}" rel="me" title="Facebook" target="_blank"></a><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="https://twitter.com/share?url={{ $item }}&text={{ $item->description }}" rel="me" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -227,4 +217,7 @@ if(count($item->images)>0){
 	</div>
 
 @endsection
-	
+{{-- custom js to fix the bug with the appearence--}}
+@section('custom_js')
+<script src="/js/product.js"></script>
+@endsection

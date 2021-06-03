@@ -47,7 +47,9 @@
 										<a href="categories.html">Categories</a>
 										<ul>
 										@foreach ($categories as $category)
-										<li><a href="categories.html">{{$category->title}}</a></li>
+										{{-- <li><a href="categories.html">{{$category->title}}</a></li> --}}
+										            
+										<li><a href="{{route('getCategories', ['getCategories', $category->alias])}}">{{$category->title}}</a></li>
 										@endforeach
 									</ul>
 									</li>
