@@ -10,6 +10,7 @@ use App\Models\Category;
 class ProductController extends Controller
 {
     public function get($cat, $product_id){
+        //first() to return only one element. Fixed Property [] does not exist on this collection instance
         $item=Product::where('id',$product_id)->first();
 
         return view ('product.get', [
@@ -22,6 +23,6 @@ class ProductController extends Controller
         $cat = Category::where('alias', $cat_alias)->first();
         return view ('categories.index', [
             'cat'=>$cat
-            ]);
+        ]);
     }
 }

@@ -13,18 +13,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 // route - name of the class; static method get (request method); /  - main or index page of our web page;
 Route::get('/', [HomeController::class, 'index']);
 
 //route to the categories
-/*fixed error Route [getCategories] not defined -> $ php artisan route:clear
-$ php artisan route:cache */
-Route::get('/category/{cat}', [ProductController::class, 'getCategories'])->name('getCategories');
-
+/*fixed error Route [getCategories] not defined -> $ php artisan route:clear or $ php artisan route:cache */
+Route::get('/{cat}', [ProductController::class, 'getCategories'])->name('getCategories');
 //another way 
 /*Route::name('/{cat}')->get('/{cat}', [ProductController::class, 'getCategories']);
 Route::redirect('/', route('/{cat}')); */
 
 
 // route to the product page 
-Route::get('/category/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
+Route::get('/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
+
+/*Laravel BC
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/category/{cat}', 'ProductController@getCategories')->name('getCategories');
+Route::get('/category/{cat}/{product_id}', 'ProductController@get')->name('getProduct');
+*/

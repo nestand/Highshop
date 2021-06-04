@@ -15,7 +15,7 @@
 	<!-- Home -->
 	<div class="home">
 		<div class="home_container">
-			<div class="home_background" style="background-image:url('/images/{{$cat->img}}')"></div>
+			<div class="home_background" style="background-image: url('/images/{{$cat->img}}')"></div>
 			<div class="home_content_container">
 				<div class="container">
 					<div class="row">
@@ -40,6 +40,7 @@
 					
 					<!-- Product Sorting -->
 					<div class="sorting_bar d-flex flex-md-row flex-column align-items-md-center justify-content-md-start">
+						{{-- to show the number of products to a category --}}
 						<div class="results">Showing <span>{{$cat->products->count()}}</span> results</div>
 						<div class="sorting_container ml-md-auto">
 							<div class="sorting">
@@ -64,7 +65,7 @@
 					<div class="product_grid">
                         {{-- function products from category.php--}}
 						@foreach ($cat->products as $product)
-                        <!-- Product -->
+						<!-- Product -->
                         @php
                             $image = '';
                             if(count($product->images) > 0){
@@ -75,7 +76,7 @@
                         @endphp
                         <div class="product">
                             <div class="product_image"><img src="/images/{{$image}}" alt="{{$product->title}}"></div>
-                            <div class="product_extra product_new"><a href="{{route('getCategories', ['getCategories', $category->alias] )}}">{{$product->category['title']}}</a></div>
+                            <div class="product_extra product_new"><a href="{{route('getCategories', ['category', $product->category['alias']] )}}">{{$product->category['title']}}</a></div>
                             <div class="product_content">
                                 <div class="product_title"><a href="{{ route('getProduct', ['category', $product->id]) }}">{{$product->title}}</a></div>
                                 @if ($product->new_price != null)
