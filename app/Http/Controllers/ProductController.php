@@ -29,11 +29,21 @@ class ProductController extends Controller
         
         //verifications for orderBy
         if(isset($request->orderBy)){
-        if($request->orderBy == 'price-low-high'){
-            $products = Product::where('category_id', $cat->id)->orderBy('price')->get();
-        } 
+            if($request->orderBy == 'price-low-high'){
+                $products = Product::where('category_id',$cat->id)->orderBy('price');
+            }
+            if($request->orderBy == 'price-high-low'){
+                $products = Product::where('category_id',$cat->id)->orderBy('price','desc');
+            }
+            if($request->orderBy == 'name-a-z'){
+                $products = Product::where('category_id',$cat->id)->orderBy('title');
+            }
+            if($request->orderBy == 'name-z-a'){
+                $products = Product::where('category_id',$cat->id)->orderBy('title','desc');
+            }
         }
-        
+       
+           
         //for the products filter rendering i.e render - create html code (see view/ajax.orderby)
         if($request->ajax()){
             return view('ajax.orderby',[

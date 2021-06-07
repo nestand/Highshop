@@ -43,24 +43,20 @@
                         <div class="results">Showing <span>{{$cat->products->count()}}</span> results</div>
                         <div class="sorting_container ml-md-auto">
                             <div class="sorting">
-                                <ul class="item_sorting">
-                                    <li>
-                                        <span class="sorting_text">Sort by</span>
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                        <ul>
-                                            <li class="product_sorting_btn" data-order="default">Default</li>
-                                            <li class="product_sorting_btn" data-order="price-low-high"><span>Price: Low-High</span></li>
-                                            <li class="product_sorting_btn" data-order="price-high-low"><span>Price: High-Low</span></li>
-                                            <li class="product_sorting_btn" data-order="name-a-z"><span>Name: A-Z</span></li>
-                                            <li class="product_sorting_btn" data-order="name-z-a"><span>Name: Z-A</span></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+								<p><strong>Sort By:</strong> <select v-model="sortBy">
+									<option class="product_sorting_btn" data-order="default">Default</option>
+									<option class="product_sorting_btn" data-order="price-low-high">Price: Low-High</option>
+									<option class="product_sorting_btn" data-order="price-high-low">Price: High-Low</option>
+									<option class="product_sorting_btn" data-order="name-a-z">Name: A-Z</option>
+									<option class="product_sorting_btn" data-order="name-z-a">Name: Z-A</option>
+								  </select>
+								  </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 			<div class="row">
 				<div class="col">
 					<div class="product_grid">
@@ -200,7 +196,14 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
 					// to show the results after the application of a filter
+					// ERR 500
 					success: (data) => {
+						let positionParameters = location.pathname.indexOf('?');
+                        let url = location.pathname.substring(positionParameters,location.pathname.length);
+                        let newURL = url + '?'; // http://127.0.0.1:8001/phones?
+                        newURL += "&page={{isset($_GET['page']) ? $_GET['page'] : 1}}"+'orderBy=' + orderBy; // http://127.0.0.1:8001/phones?orderBy=name-z-a
+                        history.pushState({}, '', newURL);
+						
 						$('.product_grid').html(data)
 					}
 				})

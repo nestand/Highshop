@@ -686,7 +686,7 @@ section
 {
 	display: block;
 	position: relative;
-	vertical-align: middle;
+	vertical-align:middle;
 }
 .page_menu_nav > li
 {

@@ -16,7 +16,6 @@
 <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="/styles/responsive.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 @yield('custom_css');
 </head>
 <body>
@@ -186,7 +185,7 @@
 	
 	<div class="footer_overlay"></div>
 	<footer class="footer">
-		<div class="footer_background" style="background-image:url(images/footer.jpg)"></div>
+		<div class="footer_background" style="background-image:url(/images/footer.jpg)"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -211,6 +210,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 
 <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="/styles/bootstrap4/popper.js"></script>
 <script src="/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/plugins/greensock/TweenMax.min.js"></script>
