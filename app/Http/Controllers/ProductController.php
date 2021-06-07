@@ -19,8 +19,13 @@ class ProductController extends Controller
     }
 
     //fixed syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ']' -> MISSING ',' after categories.index
-    public function getCategories($cat_alias){
+    public function getCategories(Request $request, $cat_alias){
         $cat = Category::where('alias', $cat_alias)->first();
+        
+        if ($request->ajax()) {
+            return $request->orderBy;
+        }
+         
         return view ('categories.index', [
             'cat'=>$cat
         ]);

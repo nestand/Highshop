@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //to share the categories with all views
+        //to share the categories name with all views  
       $categories = Category::orderBy('id')->get();
 
       //https://laravel.com/docs/8.x/views(more info)

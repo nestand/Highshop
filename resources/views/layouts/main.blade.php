@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="/styles/responsive.css">
+   <!-- CSRF Token -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 @yield('custom_css');
 </head>
 <body>
@@ -209,8 +211,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 </div>
 
-<script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/styles/bootstrap4/popper.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="/styles/bootstrap4/popper.js"></script>
 <script src="/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/plugins/greensock/TweenMax.min.js"></script>
 <script src="/plugins/greensock/TimelineMax.min.js"></script>
@@ -222,6 +223,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/plugins/easing/easing.js"></script>
 <script src="/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="/js/custom.js"></script>
+<script src="/js/product.js"></script>
 @yield('custom_js');
 </body>
 </html>
