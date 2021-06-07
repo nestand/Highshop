@@ -26,10 +26,19 @@ class ProductController extends Controller
         
         //get the products by cat id for ajax filter, step 2 send $products to return view categories.index
         $products = Product::where('category_id', $cat->id)->get();
-
         
-        if ($request->ajax()) {
-            return $request->orderBy;
+        //verifications for orderBy
+        if(isset($request->orderBy)){
+        if($request->orderBy == 'price-low-high'){
+            $products = Product::where('category_id', $cat->id)->orderBy('price')->get();
+        } 
+        }
+        
+        //for the products filter rendering i.e render - create html code (see view/ajax.orderby)
+        if($request->ajax()){
+            return view('ajax.orderby',[
+                'products' => $products
+            ])->render();
         }
          
         return view('categories.index', [
