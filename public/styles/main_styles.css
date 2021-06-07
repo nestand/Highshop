@@ -1089,6 +1089,14 @@ section
 	width: calc((100% - 90px) / 4);
 	margin-bottom: 59px;
 }
+.product:not(:last-child){ 
+    margin-right:20px;
+}
+.product_grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .product_image
 {
 	width: 100%;

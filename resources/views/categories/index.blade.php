@@ -183,6 +183,13 @@
  $(document).ready(function (){
             $('.product_sorting_btn').click(function () {
             let orderBy = $(this).data('order')
+			
+				// test click js  
+			// console.log('test click');
+                //test click cat
+		    //console.log(orderBy);
+            
+			//test orderBy - return AJAX 
 			$.ajax({
                     url: "{{route('getCategories', $cat->alias)}}",
                     type: "GET",
