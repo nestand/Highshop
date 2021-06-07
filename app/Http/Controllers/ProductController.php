@@ -30,16 +30,16 @@ class ProductController extends Controller
         //verifications for orderBy
         if(isset($request->orderBy)){
             if($request->orderBy == 'price-low-high'){
-                $products = Product::where('category_id',$cat->id)->orderBy('price');
+                $products = Product::where('category_id',$cat->id)->orderBy('price')->get();
             }
             if($request->orderBy == 'price-high-low'){
-                $products = Product::where('category_id',$cat->id)->orderBy('price','desc');
+                $products = Product::where('category_id',$cat->id)->orderBy('price','desc')->get();
             }
             if($request->orderBy == 'name-a-z'){
-                $products = Product::where('category_id',$cat->id)->orderBy('title');
+                $products = Product::where('category_id',$cat->id)->orderBy('title')->get();
             }
             if($request->orderBy == 'name-z-a'){
-                $products = Product::where('category_id',$cat->id)->orderBy('title','desc');
+                $products = Product::where('category_id',$cat->id)->orderBy('title','desc')->get();
             }
         }
        
