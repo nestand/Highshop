@@ -183,13 +183,6 @@
  $(document).ready(function (){
             $('.product_sorting_btn').click(function () {
             let orderBy = $(this).data('order')
-			
-				// test click js  
-			// console.log('test click');
-                //test click cat
-		    //console.log(orderBy);
-            
-			//test orderBy - return AJAX 
 			$.ajax({
                     url: "{{route('getCategories', $cat->alias)}}",
                     type: "GET",
@@ -199,8 +192,9 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
+					// to show the results after the application of a filter
 					success: (data) => {
-						console.log(data)
+						$('.product_grid').html(data)
 					}
 				})
             })
