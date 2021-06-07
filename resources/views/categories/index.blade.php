@@ -65,7 +65,7 @@
 				<div class="col">
 					<div class="product_grid">
                         {{-- function products from category.php--}}
-						@foreach ($cat->products as $product)
+						@foreach ($products as $product)
 						<!-- Product -->
 						@php
 						$image='';

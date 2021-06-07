@@ -9,25 +9,32 @@ use App\Models\Category;
 //function to select only one product from DB to show it seperately and on a single page.
 class ProductController extends Controller
 {
-    public function get($cat, $product_id){
+    public function get($cat, $product_id)
+    {
         //first() to return only one element. Fixed Property [] does not exist on this collection instance
-        $item=Product::where('id',$product_id)->first();
+        $item=Product::where('id', $product_id)->first();
 
-        return view ('product.get', [
+        return view('product.get', [
             'item'=>$item
         ]);
     }
 
     //fixed syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ']' -> MISSING ',' after categories.index
-    public function getCategories(Request $request, $cat_alias){
+    public function getCategories(Request $request, $cat_alias)
+    {
         $cat = Category::where('alias', $cat_alias)->first();
+        
+        //get the products by cat id for ajax filter, step 2 send $products to return view categories.index
+        $products = Product::where('category_id', $cat->id)->get();
+
         
         if ($request->ajax()) {
             return $request->orderBy;
         }
          
-        return view ('categories.index', [
-            'cat'=>$cat
+        return view('categories.index', [
+            'cat'=>$cat,
+            'products'=>$products,
         ]);
     }
 }
