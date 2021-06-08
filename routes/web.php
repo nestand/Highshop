@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,19 +19,22 @@ use Illuminate\Support\Facades\Route;
 // route - name of the class; static method get (request method); /  - main or index page of our web page;
 Route::get('/', [HomeController::class, 'index']);
 
+// route to the cart page 
+Route::get('/cart', [CartController::class, 'index'])->name('cartIndex');
+//Route::get('/cart', 'CartController@index')->name('cartIndex');
+
 //route to the categories
 /*fixed error Route [getCategories] not defined -> $ php artisan route:clear or $ php artisan route:cache */
-Route::get('/{cat}', [ProductController::class, 'getCategories'])->name('getCategories');
+Route::get('/categories/{cat}', [ProductController::class, 'getCategories'])->name('getCategories');
 //another way 
 /*Route::name('/{cat}')->get('/{cat}', [ProductController::class, 'getCategories']);
 Route::redirect('/', route('/{cat}')); */
 
 
 // route to the product page 
-Route::get('/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
+Route::get('/categories/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
 
-// route to the cart page 
-Route::get('/cart', [CartController::class, 'index'])->name('cartIndex');
+
 
 /*Laravel BC
 Route::get('/', 'HomeController@index')->name('home');
