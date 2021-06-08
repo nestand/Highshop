@@ -182,6 +182,9 @@
                     type: "GET",
                     data: {
                         orderBy: orderBy,
+						// to solve the problem with wrong behavior while pagination and stay at p.1 
+						// and not get the products from very begging if change the search filter
+						page: {{isset($_GET['page']) ? $_GET['page'] : 1}},
                           },
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -195,10 +198,18 @@
 						let positionParameters = location.pathname.indexOf('?');
                         let url = location.pathname.substring(positionParameters,location.pathname.length);
                         let newURL = url + '?'; // http://127.0.0.1:8001/phones?
-                        newURL += "&page={{isset($_GET['page']) ? $_GET['page'] : 1}}"+'orderBy=' + orderBy; // http://127.0.0.1:8001/phones?orderBy=name-z-a
+                        
+						// to show the correct link during the pagination 
+						newURL += "&page={{isset($_GET['page']) ? $_GET['page'] : 1}}"+'orderBy=' + orderBy; // http://127.0.0.1:8001/phones?orderBy=name-z-a
                         // to safe and overwritten the new url
 						history.pushState({}, '', newURL);
 						
+						//for the correct JQuery link treatment 
+						$('.product_pagination a').each(function(index, value){
+                            let link= $(this).attr('href')
+                            $(this).attr('href',link+'&orderBy='+orderBy)
+                        })
+
 						$('.product_grid').html(data)
                         
 					}

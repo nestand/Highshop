@@ -25,21 +25,21 @@ class ProductController extends Controller
         $cat = Category::where('alias', $cat_alias)->first();
         //for the pagination we replace get to paginate and put the number of products to show
         //get the products by cat id for ajax filter, step 2 send $products to return view categories.index
-        $products = Product::where('category_id', $cat->id)->paginate(8);
+        $products = Product::where('category_id', $cat->id)->paginate(10);
         
         //verifications for orderBy
         if(isset($request->orderBy)){
             if($request->orderBy == 'price-low-high'){
-                $products = Product::where('category_id',$cat->id)->orderBy('price')->paginate(5);
+                $products = Product::where('category_id',$cat->id)->orderBy('price')->paginate(10);
             }
             if($request->orderBy == 'price-high-low'){
-                $products = Product::where('category_id',$cat->id)->orderBy('price','desc')->paginate(5);
+                $products = Product::where('category_id',$cat->id)->orderBy('price','desc')->paginate(10);
             }
             if($request->orderBy == 'name-a-z'){
-                $products = Product::where('category_id',$cat->id)->orderBy('title')->paginate(5);
+                $products = Product::where('category_id',$cat->id)->orderBy('title')->paginate(10);
             }
             if($request->orderBy == 'name-z-a'){
-                $products = Product::where('category_id',$cat->id)->orderBy('title','desc')->paginate(5);
+                $products = Product::where('category_id',$cat->id)->orderBy('title','desc')->paginate(10);
             }
         }
        
