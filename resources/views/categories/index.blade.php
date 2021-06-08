@@ -89,17 +89,9 @@
                         </div>
                     @endforeach
                     </div>
-
-					<div class="product_pagination">
-						<ul>
-							<li class="active"><a href="#">01.</a></li>
-							<li><a href="#">02.</a></li>
-							<li><a href="#">03.</a></li>
-						</ul>
-					</div>
-
+                    {{--method links to load more products and send the user to the next page--}}
+					{{ $products->appends(request()->query())->links()}} 
 				</div>
-			</div>
 		</div>
 	</div>
 
@@ -180,12 +172,11 @@
             $('.product_sorting_btn').click(function () {
             let orderBy = $(this).data('order')
 			
-				// test click js  
-			// console.log('test click');
-                //test click cat
-		    //console.log(orderBy);
-            
-			//test orderBy - return AJAX 
+		/*
+		X-CSRF for protection of the HTTP header for AJAX requests while rendering the HTML,
+		then in front end to get the value from that meta tag and send it to backend.
+		*/
+
 			$.ajax({
                     url: "{{route('getCategories', $cat->alias)}}",
                     type: "GET",
@@ -195,16 +186,21 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
-					// to show the results after the application of a filter
-					// ERR 500
+					/* 
+					to show the results after the application of a filter
+					fixed ERR 500 in the productcontroller
+					*/ 
 					success: (data) => {
+						// to get the request position after ? with get parameters 
 						let positionParameters = location.pathname.indexOf('?');
                         let url = location.pathname.substring(positionParameters,location.pathname.length);
                         let newURL = url + '?'; // http://127.0.0.1:8001/phones?
                         newURL += "&page={{isset($_GET['page']) ? $_GET['page'] : 1}}"+'orderBy=' + orderBy; // http://127.0.0.1:8001/phones?orderBy=name-z-a
-                        history.pushState({}, '', newURL);
+                        // to safe and overwritten the new url
+						history.pushState({}, '', newURL);
 						
 						$('.product_grid').html(data)
+                        
 					}
 				})
             })

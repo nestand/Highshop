@@ -210,7 +210,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 
 <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="/styles/bootstrap4/popper.js"></script>
 <script src="/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="/plugins/greensock/TweenMax.min.js"></script>
@@ -219,7 +218,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/plugins/greensock/animation.gsap.min.js"></script>
 <script src="/plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="/plugins/easing/easing.js"></script>
 <script src="/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="/js/custom.js"></script>
