@@ -8,8 +8,9 @@
 {{-- custom css -> to fix the bug with appearence--}}
 @section('custom_css')
 <link rel="stylesheet" type="text/css" href="/styles/product.css">
-<link rel="stylesheet" type="text/css" href="/styles/categories.css">
 <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
+<link rel="stylesheet" type="text/css" href="/styles/categories.css">
+<link rel="stylesheet" type="text/css" href="/styles/categories_responsive.css">
 @endsection
 {{-- the content from index.blade.php --}}
 @section('content')

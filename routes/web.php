@@ -29,6 +29,9 @@ Route::redirect('/', route('/{cat}')); */
 // route to the product page 
 Route::get('/{cat}/{product_id}', [ProductController::class, 'get'])->name('getProduct');
 
+// route to the cart page 
+Route::get('/cart', [CartController::class, 'index'])->name('cartIndex');
+
 /*Laravel BC
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/category/{cat}', 'ProductController@getCategories')->name('getCategories');

@@ -220,4 +220,5 @@
 {{-- custom js to fix the bug with the appearence--}}
 @section('custom_js')
 <script src="/js/product.js"></script>
+<script src="/js/categories.js"></script>
 @endsection
