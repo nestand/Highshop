@@ -222,6 +222,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="/js/custom.js"></script>
 <script src="/js/product.js"></script>
+<script src="/js/categories.js"></script>
 @yield('custom_js');
 </body>
 </html>

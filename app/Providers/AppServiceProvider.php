@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 // to resolve the error with the class category not found
@@ -27,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //to share the categories name with all views  
       $categories = Category::orderBy('id')->get();
-
-      //https://laravel.com/docs/8.x/views(more info)
+      
+       //https://laravel.com/docs/8.x/views(more info)
       View::share([
           'categories'=> $categories
       ]);

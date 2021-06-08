@@ -8,6 +8,7 @@
 {{-- custom css -> to fix the bug with appearence--}}
 @section('custom_css')
 <link rel="stylesheet" type="text/css" href="/styles/product.css">
+<link rel="stylesheet" type="text/css" href="/styles/categories.css">
 <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
 @endsection
 {{-- the content from index.blade.php --}}
@@ -90,7 +91,7 @@
                     @endforeach
                     </div>
                     {{--method links to load more products and send the user to the next page--}}
-					{{ $products->appends(request()->query())->links()}} 
+					{{ $products->appends(request()->query())->links('pagination.index')}} 
 				</div>
 		</div>
 	</div>
@@ -218,4 +219,5 @@
         })
 
 </script>
+
 @endsection
