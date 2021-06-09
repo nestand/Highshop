@@ -2,12 +2,43 @@
 @extends('layouts.main')
 
 {{-- the name of <title> for index.blade.php --}}
-@section('title', 'Home')
+@section('title', 'Products')
 
 {{-- custom css -> to fix the bug with the appearence--}}
 @section('custom_css')
 <link rel="stylesheet" type="text/css" href="/styles/product.css">
 <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
+@endsection
+
+{{-- custom js script--}}
+@section('custom_js')
+<script src="/js/product.js"></script>
+<script>
+	// click button
+	$(document).ready(function(){
+		$('.cart_button').click(function (){
+			addToCart()
+		})
+	})
+	// click button treatment
+	function addToCart(){
+		$.ajax({
+                    url: "{{route('addToCart')}}",
+                    type: "POST",
+                    data: {
+                       id: "click test sucess!"
+					},
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+					
+					success: (data) => 
+					console.log(data)
+	})
+  }
+
+
+</script>
 @endsection
 
 {{-- the content from index.blade.php --}} 
@@ -215,10 +246,4 @@
 			</div>
 		</div>
 	</div>
-
-@endsection
-{{-- custom js to fix the bug with the appearence--}}
-@section('custom_js')
-<script src="/js/product.js"></script>
-<script src="/js/categories.js"></script>
 @endsection

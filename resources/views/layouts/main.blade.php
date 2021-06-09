@@ -9,6 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Highshop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{-- to fix POST 419 (unknown status) laravel error --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" type="text/css" href="/styles/bootstrap4/bootstrap.min.css">
 <link href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -33,18 +35,9 @@
 							<div class="logo"><a href="/">Highshop.</a></div>
 							<nav class="main_nav">
 								<ul>
-									<li class="hassubs active">
-										<a href="/">Home</a>
-										<ul>
-											<li><a href="#">Categories</a></li>
-											<li><a href="#">Product</a></li>
-											<li><a href="#">Cart</a></li>
-											<li><a href="#">Check out</a></li>
-											<li><a href="#">Contact</a></li>
-										</ul>
-									</li>
+									<li><a href="/">Home</a></li>
 									<li class="hassubs">
-										<a href="categories.html">Categories</a>
+										<a href="#">Categories</a>
 										<ul>
 										@foreach ($categories as $category)
 										{{-- <li><a href="categories.html">{{$category->title}}</a></li> --}}
@@ -53,8 +46,8 @@
 										@endforeach
 									</ul>
 									</li>
-									<li><a href="#">Accessories</a></li>
-									<li><a href="#">Offers</a></li>
+									<li><a href="#">About us</a></li>
+									<li><a href="#">Shipping</a></li>
 									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
