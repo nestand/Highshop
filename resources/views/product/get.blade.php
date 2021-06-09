@@ -16,18 +16,25 @@
 <script>
 	// click button
 	$(document).ready(function(){
-		$('.cart_button').click(function (){
+		// "event" added to fix the bug with the adding to cart button which moved the page up after a click
+		$('.cart_button').click(function (event){
+			event.preventDefault()
 			addToCart()
 		})
 	})
 	// click button treatment
+	//blocked 0 product qty in the cart (look at line 229 in product.js)
 	function addToCart(){
+        let id = $('.details_name').data('id')
+        let qty = $('#quantity_input').val() 
+
 		$.ajax({
                     url: "{{route('addToCart')}}",
                     type: "POST",
                     data: {
-                       id: "click test sucess!"
-					},
+                       id: id,
+					   qty: qty,
+			        	 },
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 					},
@@ -101,7 +108,7 @@
 				<!-- Product Content -->
 				<div class="col-lg-6">
 					<div class="details_content">
-						<div class="details_name">{{$item->title}}</div>
+						<div class="details_name" data-id="{{$item->id}}">{{$item->title}}</div>
 						@if($item->new_price != null)
 								<div class="details_discphpount">${{$item->price}}</div>
 								<div class="details_price">${{$item->new_price}}</div>

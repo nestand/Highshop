@@ -221,11 +221,11 @@ $(document).ready(function()
 				endVal = parseFloat(originalVal) + 1;
 				input.val(endVal);
 			});
-
+            // to block the possibility to put 0 in qty of a product
 			decButton.on('click', function()
 			{
 				originalVal = input.val();
-				if(originalVal > 0)
+				if(originalVal > 1)
 				{
 					endVal = parseFloat(originalVal) - 1;
 					input.val(endVal);
