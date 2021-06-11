@@ -16,4 +16,9 @@ class Product extends Model
     public function category(){
      return $this->belongsTo(Category::class, 'category_id');
     }
+    // https://laraveldaily.com/pivot-tables-and-many-to-many-relationships/
+    // relationship manytomany between tables cart and products
+    public function carts(){
+        return $this->belongsToMany(Cart::class)->withPivot('quantity');
+    }
 }

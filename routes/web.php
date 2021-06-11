@@ -23,6 +23,10 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/cart', [CartController::class, 'index'])->name('cartIndex');
 //Route::get('/cart', 'CartController@index')->name('cartIndex');
 
+// route to the chekout
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cartCheckout');
+//Route::get('/cart/checkout', 'CartController@checkout')->name('cartCheckout');
+
 //route to the categories
 /*fixed error Route [getCategories] not defined -> $ php artisan route:clear or $ php artisan route:cache */
 Route::get('/categories/{cat}', [ProductController::class, 'getCategories'])->name('getCategories');
