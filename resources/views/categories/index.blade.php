@@ -13,6 +13,12 @@
 <link rel="stylesheet" type="text/css" href="/styles/categories_responsive.css">
 @endsection
 {{-- the content from index.blade.php --}}
+{{-- custom js --}}
+@section('custom_js')
+<script src="/js/product.js"></script>
+<script src="/js/categories.js"></script>
+<script src="/js/custom.js"></script>
+@endsection
 @section('content')
 	<!-- Home -->
 	<div class="home">
@@ -219,6 +225,6 @@
             })
         })
 
-</script>
+</scrip>
 
 @endsection

@@ -2,12 +2,50 @@
 @extends('layouts.main')
 
 {{-- the name of <title> for index.blade.php --}}
-@section('title', 'Home')
+@section('title', 'Products')
 
 {{-- custom css -> to fix the bug with the appearence--}}
 @section('custom_css')
 <link rel="stylesheet" type="text/css" href="/styles/product.css">
 <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
+@endsection
+
+{{-- custom js script--}}
+@section('custom_js')
+<script src="/js/product.js"></script>
+<script>
+	// click button
+	$(document).ready(function(){
+		// "event" added to fix the bug with the adding to cart button which moved the page up after a click
+		$('.cart_button').click(function (event){
+			event.preventDefault()
+			addToCart()
+		})
+	})
+	// click button treatment
+	//blocked 0 product qty in the cart (look at line 229 in product.js)
+	function addToCart(){
+        let id = $('.details_name').data('id')
+        let qty = $('#quantity_input').val() 
+
+		$.ajax({
+                    url: "{{route('addToCart')}}",
+                    type: "POST",
+                    data: {
+                       id: id,
+					   qty: qty,
+			        	 },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+					
+					success: (data) => 
+					console.log(data)
+	})
+  }
+
+
+</script>
 @endsection
 
 {{-- the content from index.blade.php --}} 
@@ -70,7 +108,7 @@
 				<!-- Product Content -->
 				<div class="col-lg-6">
 					<div class="details_content">
-						<div class="details_name">{{$item->title}}</div>
+						<div class="details_name" data-id="{{$item->id}}">{{$item->title}}</div>
 						@if($item->new_price != null)
 								<div class="details_discphpount">${{$item->price}}</div>
 								<div class="details_price">${{$item->new_price}}</div>
@@ -215,10 +253,4 @@
 			</div>
 		</div>
 	</div>
-
-@endsection
-{{-- custom js to fix the bug with the appearence--}}
-@section('custom_js')
-<script src="/js/product.js"></script>
-<script src="/js/categories.js"></script>
 @endsection

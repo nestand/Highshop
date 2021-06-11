@@ -23,9 +23,14 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/cart', [CartController::class, 'index'])->name('cartIndex');
 //Route::get('/cart', 'CartController@index')->name('cartIndex');
 
+<<<<<<< HEAD
 // route to the chekout
 Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cartCheckout');
 //Route::get('/cart/checkout', 'CartController@checkout')->name('cartCheckout');
+=======
+// route for the cart adding  
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+>>>>>>> 9fb059deb3f5b8d1a086250849688e1411aa20f4
 
 //route to the categories
 /*fixed error Route [getCategories] not defined -> $ php artisan route:clear or $ php artisan route:cache */
