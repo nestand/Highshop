@@ -1,7 +1,7 @@
 <p align="center"><a href="https://github.com/nestand/Highshop" target="_blank"><img src="https://imgur.com/4Gno0pJ.png width="20px"></a></p>
 
 <p align="center">
-<a href="https://www.linkedin.com/in/andreynest/"><img src="https://imgur.com/OB6CpjX.png" alt="about me" width="110px"></a>
+<a href="https://www.linkedin.com/in/nesterov-andrey/"><img src="https://imgur.com/OB6CpjX.png" alt="about me" width="110px"></a>
 <a href="https://github.com/nestand?tab=repositories"><img src="https://imgur.com/8LVYkn9.png" alt="more code" width="110px"></a>
 </p>
 
